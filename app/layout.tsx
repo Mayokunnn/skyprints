@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   title: "Skyprint Global Limited - Corporate Printing & Branding Solutions",
   description:
     "Professional printing solutions for corporate branding, technical printing, merchandise, and event branding in Lagos, Nigeria.",
-  generator: "v0.app",
 };
 
 export default function RootLayout({

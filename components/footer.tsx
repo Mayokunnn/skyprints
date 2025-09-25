@@ -9,8 +9,8 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-4 text-center sm:text-left">
             <div className="flex items-center space-x-2 justify-center sm:justify-start">
-              <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-accent-foreground font-bold">S</span>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                <img src="./logo.png" alt="Logo" />
               </div>
               <div>
                 <h3 className="font-bold">Skyprint Global</h3>

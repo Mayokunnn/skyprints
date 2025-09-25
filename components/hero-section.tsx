@@ -1,14 +1,12 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { TypewriterEffect } from "./ui/typewriter-effect";
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import { useInView } from "motion/react";
 import { NumberTicker } from "./ui/number-ticker";
-import { HeroParallax } from "./ui/hero-parallax"; // ✅ bring in your parallax
 import { cn } from "@/lib/utils";
 import { DotBackground } from "./dot-background";
+
 export const products = [
   {
     title: "Branded Coffee Mugs",
@@ -100,22 +98,19 @@ export function HeroSection({ className }: { className?: string }) {
         {/* ✅ Hero Content */}
         <div className="relative z-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center space-y-8">
           <div className="space-y-4 max-w-3xl">
-            <TypewriterEffect
-              words={[
-                { text: "Creating" },
-                { text: "Printing", className: "text-accent" },
-                { text: "Solutions" },
-                { text: "for" },
-                { text: "Corporate", className: "text-primary" },
-                { text: "Excellence", className: "text-accent" },
-              ]}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tighter text-white"
-            />
-
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0, ease: "easeInOut" }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tighter text-primary"
+            >
+              Creating <span className="tex[t-accent">Printing</span> Solutions
+              for Corporate <span className="text-accent">Excellence</span>
+            </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 1.5, duration: 0.6 }}
+              transition={{ delay: 0.6, duration: 0.8, ease: "easeInOut" }}
               className="text-base sm:text-lg leading-relaxed text-pretty max-w-2xl mx-auto"
             >
               Skyprint Global Limited delivers bespoke corporate branding,
@@ -127,7 +122,7 @@ export function HeroSection({ className }: { className?: string }) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 2.5, duration: 0.6 }}
+            transition={{ delay: 1, duration: 0.8, ease: "easeInOut" }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           >
             <Button
@@ -154,7 +149,7 @@ export function HeroSection({ className }: { className?: string }) {
             variants={{
               hidden: {},
               show: {
-                transition: { staggerChildren: 0.3, delayChildren: 3.2 },
+                transition: { staggerChildren: 0.3, delayChildren: 1.6 },
               },
             }}
           >
@@ -173,7 +168,7 @@ export function HeroSection({ className }: { className?: string }) {
               >
                 <NumberTicker
                   value={stat.value}
-                  delay={3 + i * 0.3}
+                  delay={1.8 + i * 0.3}
                   className="text-2xl font-bold text-primary"
                 />
                 <span className="text-2xl font-bold text-primary">
