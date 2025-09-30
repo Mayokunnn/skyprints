@@ -114,22 +114,8 @@ export function Footer() {
         <div className="border-t border-primary-foreground/20 mt-8 sm:mt-12 pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 text-center sm:text-left">
             <p className="text-sm opacity-80">
-              © 2024 Skyprint Global Limited. All rights reserved.
+              © 2025 Skyprint Global Limited. All rights reserved.
             </p>
-            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6">
-              <Link
-                href="/privacy"
-                className="text-sm opacity-80 hover:opacity-100 transition-opacity"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="text-sm opacity-80 hover:opacity-100 transition-opacity"
-              >
-                Terms of Service
-              </Link>
-            </div>
           </div>
         </div>
       </div>

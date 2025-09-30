@@ -37,7 +37,10 @@ export function Header() {
               </p>
             </div>
             <div className="sm:hidden">
-              <h1 className="text-lg font-bold text-foreground">Skyprint</h1>
+              <h1 className="text-base font-bold text-foreground">Skyprint Global</h1>
+              <p className="text-xs text-muted-foreground">
+                Printing Solutions
+              </p>
             </div>
           </Link>
 

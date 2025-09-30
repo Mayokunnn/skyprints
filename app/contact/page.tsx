@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { FaWhatsapp } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,6 +21,7 @@ import {
   Users,
   Printer,
 } from "lucide-react";
+import { DotBackground } from "@/components/dot-background";
 
 export default function ContactPage() {
   const contactInfo = [
@@ -105,38 +107,40 @@ Thank you!`;
       <Header />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white py-20">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            className="max-w-4xl mx-auto text-center"
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            transition={{ duration: 0.8 }}
-          >
-            <Badge className="mb-6 bg-orange-500/20 text-orange-300 border-orange-500/30">
-              Contact Us
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
-              Let's Bring Your{" "}
-              <span className="text-orange-400">Vision to Life</span>
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 text-pretty max-w-3xl mx-auto">
-              Ready to start your next printing project? Get in touch with our
-              expert team for personalized solutions and competitive quotes.
-            </p>
-            <Button
-              size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white mr-4"
-              onClick={handleWhatsAppChat}
-            >
-              <MessageSquare className="w-5 h-5 mr-2" />
-              Chat with Us on WhatsApp
-            </Button>
-          </motion.div>
-        </div>
-      </section>
+      <DotBackground>
+        <section className="relative py-32 flex items-center">
+          <div className="container mx-auto px-4">
+            <div className="text-center max-w-4xl mx-auto relative z-10">
+              <motion.div
+                className="max-w-4xl mx-auto text-center"
+                initial="hidden"
+                animate="visible"
+                variants={fadeUp}
+                transition={{ duration: 0.8 }}
+              >
+                <Badge className="mb-3">Contact</Badge>
+                <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
+                  Let's Bring Your{" "}
+                  <span className="text-orange-400">Vision to Life</span>
+                </h1>
+                <p className="text-xl mb-8 text-pretty max-w-3xl mx-auto">
+                  Ready to start your next printing project? Get in touch with
+                  our expert team for personalized solutions and competitive
+                  quotes.
+                </p>
+                <Button
+                  size="lg"
+                  className="bg-green-600 hover:bg-green-700 text-white mr-4 gap-0"
+                  onClick={handleWhatsAppChat}
+                >
+                  <FaWhatsapp className="w-4 h-4 mr-1" />
+                  Chat with Us on WhatsApp
+                </Button>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      </DotBackground>
 
       {/* Contact Information */}
       <section className="py-20 bg-gray-50">
@@ -170,7 +174,7 @@ Thank you!`;
           >
             {contactInfo.map((info, index) => (
               <motion.div key={index} variants={fadeUp}>
-                <Card className="text-center p-6 hover:shadow-lg transition-shadow">
+                <Card className="h-[250px] max-h-64 text-center p-6 hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6">
                     <div className="flex justify-center mb-4">{info.icon}</div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-4">
@@ -191,10 +195,10 @@ Thank you!`;
         </div>
       </section>
 
-      {/* Contact Form & Map */}
+      {/* Contact Form*/}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-1 gap-12">
             {/* Contact Form */}
             <div>
               <div className="mb-8">
@@ -220,10 +224,10 @@ Thank you!`;
                     </div>
                     <Button
                       size="sm"
-                      className="bg-green-600 hover:bg-green-700 text-white"
+                      className="bg-green-600 hover:bg-green-700 text-white px-2 py-1 gap-0"
                       onClick={handleWhatsAppChat}
                     >
-                      <MessageSquare className="w-4 h-4 mr-2" />
+                      <FaWhatsapp className="w-4 h-4 mr-1" />
                       Chat Now
                     </Button>
                   </div>
@@ -342,85 +346,6 @@ Thank you!`;
                   <p className="text-sm text-gray-500 text-center">
                     * Required fields. We'll respond within 24 hours.
                   </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Map & Additional Info */}
-            <div className="space-y-8">
-              {/* Map Placeholder */}
-              <Card>
-                <CardContent className="p-0">
-                  <div className="h-64 bg-gray-200 rounded-t-lg flex items-center justify-center">
-                    <div className="text-center text-gray-500">
-                      <MapPin className="h-12 w-12 mx-auto mb-2" />
-                      <p>Interactive Map</p>
-                      <p className="text-sm">
-                        2, Ayinde Street, Off Ikate, Surulere, Lagos.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-semibold text-gray-900 mb-2">
-                      Visit Our Facility
-                    </h3>
-                    <p className="text-gray-600 text-sm mb-4">
-                      Come see our state-of-the-art printing equipment and
-                      discuss your project in person.
-                    </p>
-                    <Button variant="outline" className="w-full bg-transparent">
-                      Get Directions
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Quick Services */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Popular Services</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {services.map((service, index) => (
-                    <div
-                      key={index}
-                      className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg"
-                    >
-                      {service.icon}
-                      <div>
-                        <h4 className="font-semibold text-gray-900">
-                          {service.title}
-                        </h4>
-                        <p className="text-sm text-gray-600">
-                          {service.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
-
-              {/* Emergency Contact */}
-              <Card className="bg-orange-50 border-orange-200">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-orange-900 mb-2">
-                    Need Urgent Assistance?
-                  </h3>
-                  <p className="text-orange-800 text-sm mb-4">
-                    For rush orders or urgent inquiries, call our priority line:
-                  </p>
-                  <div className="flex items-center space-x-2 text-orange-900 font-semibold mb-3">
-                    <Phone className="h-4 w-4" />
-                    <span>+234 (0) 806 761 4781</span>
-                  </div>
-                  <Button
-                    size="sm"
-                    className="w-full bg-green-600 hover:bg-green-700 text-white"
-                    onClick={handleWhatsAppChat}
-                  >
-                    <MessageSquare className="w-4 h-4 mr-2" />
-                    WhatsApp for Urgent Orders
-                  </Button>
                 </CardContent>
               </Card>
             </div>

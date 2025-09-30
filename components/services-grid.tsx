@@ -85,7 +85,7 @@ export function ServicesGrid() {
       </p>
 
       <motion.div
-        className="mt-12 grid grid-cols-1 lg:grid-cols-6 auto-rows-[200px] gap-6"
+        className="mt-12 grid grid-cols-1 lg:grid-cols-6 lg:auto-rows-[200px] gap-6"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"

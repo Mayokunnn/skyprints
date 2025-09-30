@@ -48,13 +48,13 @@ export const HeroParallax = ({
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 0]),
+    useTransform(scrollYProgress, [0, 1], [50, 200]),
     springConfig
   );
   return (
     <div
       ref={ref}
-      className="h-[200vh] overflow-hidden antialiased relative flex flex-col  [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[200vh] max-h-[300vh] overflow-hidden antialiased relative flex flex-col  [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -121,7 +121,7 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product cursor-pointer h-96 w-[30rem] rounded-md relative shrink-0"
+      className="group/product h-[22rem] w-[30rem] rounded-md relative shrink-0"
     >
       <p className="block group-hover/product:shadow-2xl ">
         <img
@@ -132,7 +132,7 @@ export const ProductCard = ({
           alt={product.title}
         />
       </p>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 pointer-events-none"></div>
       <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
         {product.title}
       </h2>

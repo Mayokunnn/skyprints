@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { useScroll, useMotionValueEvent, motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "motion/react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -145,100 +145,107 @@ const services = [
 ];
 
 export function ServicesSections() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end end"],
-  });
-
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Watch scroll progress and update active service
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const section = 1 / services.length;
-    const index = Math.min(services.length - 1, Math.floor(latest / section));
-    setActiveIndex(index);
-  });
-
   return (
-    <section ref={ref} className="relative py-20">
+    <section className="relative py-20">
       <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12">
-        {/* Left side - scrollable text */}
+        {/* Left side */}
         <div className="space-y-32">
-          {services.map((service, index) => (
-            <div key={service.id} className="space-y-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <service.icon className="w-6 h-6 text-primary" />
+          {services.map((service, index) => {
+            const ref = useRef(null);
+            const isInView = useInView(ref, { margin: "-20% 0px -20% 0px" });
+
+            useEffect(() => {
+              if (isInView) {
+                setActiveIndex(index);
+              }
+            }, [isInView, index]);
+
+            return (
+              <div ref={ref} key={service.id} className="space-y-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <service.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <Badge variant="secondary">{service.pricing}</Badge>
                 </div>
-                <Badge variant="secondary">{service.pricing}</Badge>
-              </div>
-
-              <div>
-                <h2 className="text-3xl font-bold text-foreground mb-4">
-                  {service.title}
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-
-              <Card className="border-border">
-                <CardHeader>
-                  <CardTitle className="text-lg">What's Included</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
+                <div>
+                  <h2 className="text-3xl font-bold text-foreground mb-4">
+                    {" "}
+                    {service.title}
+                  </h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    {" "}
+                    {service.description}{" "}
+                  </p>
+                </div>{" "}
+                <Card className="border-border">
+                  {" "}
+                  <CardHeader>
+                    {" "}
+                    <CardTitle className="text-lg">
+                      What's Included
+                    </CardTitle>{" "}
+                  </CardHeader>
+                  <CardContent>
+                    {" "}
+                    <ul className="space-y-2">
+                      {" "}
+                      {service.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />{" "}
+                          <span className="text-sm">{feature}</span>{" "}
+                        </li>
+                      ))}{" "}
+                    </ul>
+                  </CardContent>
+                </Card>
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-foreground">
+                    Key Benefits:
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {" "}
+                    {service.benefits.map((benefit, i) => (
+                      <Badge
+                        key={i}
+                        variant="outline"
+                        className="border-slate-900 text-primary"
+                      >
+                        {" "}
+                        {benefit}{" "}
+                      </Badge>
                     ))}
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <div className="space-y-3">
-                <h4 className="font-semibold text-foreground">Key Benefits:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {service.benefits.map((benefit, i) => (
-                    <Badge
-                      key={i}
-                      variant="outline"
-                      className="border-slate-900 text-primary"
-                    >
-                      {benefit}
-                    </Badge>
-                  ))}
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    asChild
+                    className="bg-slate-900 hover:bg-primary/90 text-primary-foreground"
+                  >
+                    <Link href={`/services/${service.id}`}>Learn More</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="border-accent text-accent hover:bg-accent hover:text-accent-foreground bg-transparent"
+                  >
+                    <Link href="/contact">Get Quote</Link>
+                  </Button>
                 </div>
               </div>
-
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button
-                  asChild
-                  className="bg-slate-900 hover:bg-primary/90 text-primary-foreground"
-                >
-                  <Link href={`/services/${service.id}`}>Learn More</Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-accent text-accent hover:bg-accent hover:text-accent-foreground bg-transparent"
-                >
-                  <Link href="/contact">Get Quote</Link>
-                </Button>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Right side - sticky changing image */}
+        {/* Right side */}
         <div className="hidden lg:block sticky top-32 h-[500px]">
           <motion.div
             key={services[activeIndex].id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
             className="relative rounded-lg overflow-hidden shadow-xl h-full"
           >

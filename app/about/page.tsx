@@ -8,6 +8,7 @@ import { CheckCircle, Award, Globe, Clock, Shield } from "lucide-react";
 import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { DotBackground } from "@/components/dot-background";
 
 export default function AboutPage() {
   const values = [
@@ -66,56 +67,59 @@ export default function AboutPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            className="max-w-4xl mx-auto text-center"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: { opacity: 0, y: 30 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { staggerChildren: 0.2, duration: 0.6 },
-              },
-            }}
-          >
-            <motion.div
-              variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-            >
-              <Badge className="mb-6 bg-orange-500/20 text-orange-300 border-orange-500/30">
-                About Skyprint Global Limited
-              </Badge>
-            </motion.div>
-            <motion.h1
-              className="text-4xl md:text-6xl font-bold mb-6 text-balance"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-            >
-              Transforming Ideas Into
-              <span className="text-orange-400">
-                {" "}
-                Exceptional Print Solutions
-              </span>
-            </motion.h1>
-            <motion.p
-              className="text-xl text-gray-300 mb-8 text-pretty max-w-3xl mx-auto"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-            >
-              Since 2014, we've been Lagos's premier printing and branding
-              partner, delivering world-class solutions to corporations,
-              institutions, and organizations across Nigeria.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
+      <DotBackground>
+        <section className="relative py-32 flex h-screen items-center">
+          <div className="container mx-auto px-4 ">
+            <div className="text-center max-w-4xl mx-auto relative z-10">
+              <motion.div
+                className="max-w-4xl mx-auto text-center"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { staggerChildren: 0.2, duration: 0.6 },
+                  },
+                }}
+              >
+                <motion.div
+                  variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+                >
+                  <Badge className="mb-3">
+                    About Skyprint Global Limited
+                  </Badge>
+                </motion.div>
+                <motion.h1
+                  className="text-4xl md:text-6xl font-bold mb-6 text-balance"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                >
+                  Transforming Ideas Into
+                  <span className="text-orange-400">
+                    {" "}
+                    Exceptional Print Solutions
+                  </span>
+                </motion.h1>
+                <motion.p
+                  className="text-xl mb-8 text-pretty max-w-3xl mx-auto"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                >
+                  Since 2014, we've been Lagos's premier printing and branding
+                  partner, delivering world-class solutions to corporations,
+                  institutions, and organizations across Nigeria.
+                </motion.p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      </DotBackground>
 
       {/* Company Story */}
       <section className="py-20 bg-gray-50">

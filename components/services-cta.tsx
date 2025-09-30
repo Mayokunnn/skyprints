@@ -18,7 +18,7 @@ export function ServicesCTA() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <Card className="bg-primary-foreground/10 border-primary-foreground/20">
+          <Card className="bg-primary-foreground/10 text-white border-primary-foreground/20">
             <CardContent className="p-6 text-center">
               <Phone className="w-8 h-8 text-accent mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Call Us</h3>
@@ -35,7 +35,7 @@ export function ServicesCTA() {
             </CardContent>
           </Card>
 
-          <Card className="bg-primary-foreground/10 border-primary-foreground/20">
+          <Card className="bg-primary-foreground/10 text-white  border-primary-foreground/20">
             <CardContent className="p-6 text-center">
               <Mail className="w-8 h-8 text-accent mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Email Us</h3>
@@ -52,7 +52,7 @@ export function ServicesCTA() {
             </CardContent>
           </Card>
 
-          <Card className="bg-primary-foreground/10 border-primary-foreground/20">
+          <Card className="bg-primary-foreground/10 text-white  border-primary-foreground/20">
             <CardContent className="p-6 text-center">
               <MessageSquare className="w-8 h-8 text-accent mx-auto mb-4" />
               <h3 className="font-semibold mb-2">WhatsApp</h3>
