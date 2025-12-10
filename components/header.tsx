@@ -5,7 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
+import { useCart } from "@/contexts/cart-context";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -18,6 +19,7 @@ const navLinks = [
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { itemCount } = useCart();
 
   return (
     <header className="bg-background border-b border-border sticky top-0 z-50">
@@ -26,18 +28,20 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center">
-              <img src="./logo.png" alt="Logo" />
+              <img src="/logo.png" alt="Logo" />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-lg sm:text-xl font-bold text-foreground">
-                Skyprint Global
+              <h1 className=" uppercase text-lg sm:text-xl font-bold text-foreground">
+                The Skyprint
               </h1>
               <p className="text-xs text-muted-foreground">
-                Printing Solutions
+                Global Services Limited
               </p>
             </div>
             <div className="sm:hidden">
-              <h1 className="text-base font-bold text-foreground">Skyprint Global</h1>
+              <h1 className="text-base font-bold text-foreground">
+                Skyprint Global
+              </h1>
               <p className="text-xs text-muted-foreground">
                 Printing Solutions
               </p>
@@ -76,8 +80,24 @@ export function Header() {
             })}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA + Cart */}
+          <div className="hidden md:flex items-center gap-3">
+            <Link href="/cart">
+              <Button
+                variant={itemCount > 0 ? "default" : "outline"}
+                size="sm"
+                className="relative"
+              >
+                <ShoppingCart className="h-4 w-4 mr-2" />
+                Cart
+                {itemCount > 0 && (
+                  <span className="absolute -top-2 -right-2 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-slate-900 px-1 text-[11px] font-semibold text-primary-foreground">
+                    {itemCount}
+                  </span>
+                )}
+              </Button>
+            </Link>
+
             <Link href="/quote">
               <Button
                 size="sm"
@@ -90,13 +110,29 @@ export function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 -mr-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <Link href="/cart" className="relative">
+              <Button
+                variant={itemCount > 0 ? "default" : "outline"}
+                size="sm"
+                className="relative"
+              >
+                <ShoppingCart className="h-4 w-4" />
+                {itemCount > 0 && (
+                  <span className="absolute -top-2 -right-2 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-slate-900 px-1 text-[11px] font-semibold text-primary-foreground">
+                    {itemCount}
+                  </span>
+                )}
+              </Button>
+            </Link>
+            <button
+              className="p-2 -mr-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

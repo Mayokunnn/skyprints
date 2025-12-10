@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   Select,
   SelectContent,
@@ -11,376 +11,275 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  MessageSquare,
-  Star,
-  Truck,
-  Shield,
-  Clock,
-  ShoppingCart,
-  Check,
-} from "lucide-react";
 import { useCart } from "@/contexts/cart-context";
+import {
+  formatPrice,
+  products,
+  findCategoryBySlug,
+  findItemForOption,
+  getCategoryImages,
+  getProductImage,
+} from "@/lib/helpers";
+import Image from "next/image";
 
 interface ProductDetailsProps {
   productId: string;
 }
 
 export function ProductDetails({ productId }: ProductDetailsProps) {
-  const [quantity, setQuantity] = useState(100);
-  const [selectedSize, setSelectedSize] = useState("");
-  const [selectedMaterial, setSelectedMaterial] = useState("");
-  const [specialRequirements, setSpecialRequirements] = useState("");
+  const { addItem } = useCart();
+
+  const category =
+    useMemo(() => findCategoryBySlug(productId) ?? products[0], [productId]) ??
+    products[0];
+
+  const [selectedOption, setSelectedOption] = useState(
+    category.options[0] ?? ""
+  );
+  const [notes, setNotes] = useState("");
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [isAdding, setIsAdding] = useState(false);
+  const carouselItems = useMemo(() => getCategoryImages(category), [category]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const { addItem, hasItem } = useCart();
-  const isInCart = hasItem(productId);
+  useEffect(() => {
+    setSelectedOption(category.options[0] ?? "");
+    setStatusMessage(null);
+    setCurrentIndex(0);
+  }, [category]);
 
-  // Mock product data - in real app, fetch based on productId
-  const product = {
-    id: productId,
-    name: "Corporate Business Cards",
-    category: "Corporate Branding",
-    price: 15000,
-    images: [
-      "/professional-business-cards-design-front.jpg",
-      "/professional-business-cards-design-back.jpg",
-      "/business-cards-printing-process.jpg",
-    ],
-    description:
-      "Premium business cards designed to make a lasting impression. Our corporate business cards are printed on high-quality paper with various finishing options to suit your brand identity.",
-    features: [
-      "Premium 350gsm paper stock",
-      "Multiple finishing options (matte, gloss, satin)",
-      "Embossing and foil stamping available",
-      "Quick 24-48 hour turnaround",
-      "Free design consultation",
-      "Bulk order discounts available",
-    ],
-    specifications: {
-      "Standard Size": "90mm x 54mm",
-      "Paper Weight": "350gsm",
-      Printing: "Full color CMYK",
-      Finishing: "Multiple options available",
-      "Minimum Order": "100 pieces",
-    },
-  };
+  const selectedItem = useMemo(
+    () => findItemForOption(category, selectedOption),
+    [category, selectedOption]
+  );
+
+  useEffect(() => {
+    const optionIndex = category.options.findIndex(
+      (opt) => opt === selectedOption
+    );
+    if (optionIndex >= 0) setCurrentIndex(optionIndex);
+  }, [category, selectedOption]);
+
+  const priceLabel = formatPrice(selectedItem?.price ?? null);
+  const unitLabel = selectedItem?.unit ?? "Custom specifications available";
+  const shouldShowWhatsApp = selectedItem?.price === null;
+  const activeImage =
+    carouselItems[currentIndex]?.src ?? getProductImage(selectedItem);
 
   const handleAddToCart = () => {
-    if (!selectedSize || !selectedMaterial) {
-      alert("Please select size and material before adding to cart");
-      return;
-    }
+    if (!selectedItem || selectedItem.price === null) return;
 
     setIsAdding(true);
     addItem({
-      id: productId,
-      name: product.name,
-      price: product.price,
-      image: product.images[0],
-      quantity: quantity,
+      id: `${productId}-${selectedOption}`,
+      name: category.category,
+      price: selectedItem.price,
+      image: "/placeholder.svg",
+      quantity: 1,
       options: {
-        size: selectedSize,
-        material: selectedMaterial,
-        ...(specialRequirements && { notes: specialRequirements }),
+        option: selectedOption,
+        unit: selectedItem.unit ?? undefined,
       },
     });
-
-    setTimeout(() => setIsAdding(false), 1000);
+    setStatusMessage("Added to cart");
+    setTimeout(() => setStatusMessage(null), 2200);
+    setIsAdding(false);
   };
 
-  const handleWhatsAppOrder = () => {
-    const phoneNumber = "2348067614781";
-    const message = `Hello! I'd like to order the following product:\n\n*Product:* ${
-      product.name
-    }\n*Price:* ₦${product.price.toLocaleString()}\n*Quantity:* ${quantity} pieces\n *Size:* ${
-      selectedSize || "Not specified"
-    }\n*Material:* ${
-      selectedMaterial || "Not specified"
-    }\n*Special Requirements:* ${
-      specialRequirements || "None"
-    }\n\nPlease provide me with a detailed quote and timeline for this order. Thank you!`;
-
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    window.open(whatsappUrl, "_blank");
+  const goToIndex = (nextIndex: number) => {
+    const total = carouselItems.length;
+    if (total === 0) return;
+    const normalized = (nextIndex + total) % total;
+    setCurrentIndex(normalized);
+    const nextOption = carouselItems[normalized]?.option;
+    if (nextOption) setSelectedOption(nextOption);
   };
 
-  const handleWhatsAppBulkQuote = () => {
+  const handleWhatsApp = () => {
     const phoneNumber = "2348067614781";
-    const message = `Hello! I'm interested in a bulk order quote for:\n\n*Product:* ${
-      product.name
-    }\n*Estimated Quantity:* ${
-      quantity >= 1000 ? quantity : "1000+"
-    } pieces\n*Size:* ${selectedSize || "To be discussed"}\n*Material:* ${
-      selectedMaterial || "To be discussed"
-    }\n*Special Requirements:* ${
-      specialRequirements || "None"
-    }\n\nI'm looking for bulk pricing and would like to discuss customization options. Please provide a detailed quote with volume discounts. Thank you!`;
-
+    const message = `Hello! I'd like pricing for ${
+      category.category
+    } - option: ${selectedOption}${
+      selectedItem?.unit ? ` (${selectedItem.unit})` : ""
+    }. Please share the cost and next steps.`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
   };
 
   return (
-    <section className="py-8 sm:py-12">
+    <section className="py-10 sm:py-14">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Product Images */}
-          <div className="space-y-4">
-            <div className="aspect-square rounded-lg overflow-hidden border">
-              <img
-                src={product.images[0] || "/placeholder.svg"}
-                alt={product.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
-              {product.images.slice(1).map((image, index) => (
-                <div
-                  key={index}
-                  className="aspect-square rounded-lg overflow-hidden border cursor-pointer hover:opacity-80 transition-opacity"
-                >
-                  <img
-                    src={image || "/placeholder.svg"}
-                    alt={`${product.name} ${index + 2}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Product Info */}
-          <div className="space-y-4 sm:space-y-6">
-            <div>
-              <Badge className="mb-2">{product.category}</Badge>
-              <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
-                {product.name}
-              </h1>
-              <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                <div className="flex items-center">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-accent text-accent" />
-                  ))}
-                </div>
-                <span className="text-sm text-muted-foreground">
-                  (24 reviews)
-                </span>
-              </div>
-              <div className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3 sm:mb-4">
-                ₦{product.price.toLocaleString()}
-              </div>
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                {product.description}
-              </p>
-            </div>
-
-            {/* Customization Options */}
-            <Card>
-              <CardHeader className="pb-3 sm:pb-4">
-                <CardTitle className="text-lg sm:text-xl">
-                  Customization Options
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="size" className="text-sm">
-                      Size *
-                    </Label>
-                    <Select
-                      value={selectedSize}
-                      onValueChange={setSelectedSize}
-                    >
-                      <SelectTrigger className="mt-1">
-                        <SelectValue placeholder="Select size" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="standard">
-                          Standard (90x54mm)
-                        </SelectItem>
-                        <SelectItem value="mini">Mini (85x55mm)</SelectItem>
-                        <SelectItem value="square">Square (70x70mm)</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label htmlFor="material" className="text-sm">
-                      Material *
-                    </Label>
-                    <Select
-                      value={selectedMaterial}
-                      onValueChange={setSelectedMaterial}
-                    >
-                      <SelectTrigger className="mt-1">
-                        <SelectValue placeholder="Select material" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="standard">Standard Paper</SelectItem>
-                        <SelectItem value="premium">
-                          Premium Cardstock
-                        </SelectItem>
-                        <SelectItem value="plastic">Plastic Cards</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-                <div>
-                  <Label htmlFor="quantity" className="text-sm">
-                    Quantity
-                  </Label>
-                  <Input
-                    id="quantity"
-                    type="number"
-                    min="100"
-                    value={quantity}
-                    onChange={(e) => setQuantity(Number(e.target.value))}
-                    className="w-full mt-1"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="notes" className="text-sm">
-                    Special Requirements
-                  </Label>
-                  <Textarea
-                    id="notes"
-                    placeholder="Any special requirements or design notes..."
-                    className="min-h-[80px] sm:min-h-[100px] mt-1"
-                    value={specialRequirements}
-                    onChange={(e) => setSpecialRequirements(e.target.value)}
-                  />
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Action Buttons */}
-            <div className="space-y-3">
-              <Button
-                size="lg"
-                className="w-full text-sm sm:text-base"
-                onClick={handleAddToCart}
-                disabled={
-                  isAdding || isInCart || !selectedSize || !selectedMaterial
-                }
-              >
-                {isAdding ? (
-                  <>
-                    <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                    Adding to Cart...
-                  </>
-                ) : isInCart ? (
-                  <>
-                    <Check className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                    Added to Cart
-                  </>
-                ) : (
-                  <>
-                    <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                    Add to Cart
-                  </>
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          <Card className="border-border">
+            <CardHeader className="space-y-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge variant="secondary">{category.category}</Badge>
+                {selectedItem?.price === null && (
+                  <Badge className="bg-slate-900 text-primary-foreground">
+                    Contact us for pricing
+                  </Badge>
                 )}
-              </Button>
-
-              <Button
-                size="lg"
-                className="w-full bg-green-600 hover:bg-green-700 text-white text-sm sm:text-base"
-                onClick={handleWhatsAppOrder}
-              >
-                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                Order via WhatsApp
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="w-full border-green-600 text-green-600 hover:bg-green-600 hover:text-white bg-transparent text-sm sm:text-base"
-                onClick={handleWhatsAppBulkQuote}
-              >
-                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                Request Bulk Quote via WhatsApp
-              </Button>
-            </div>
-
-            {/* Service Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 sm:pt-6 border-t">
-              <div className="text-center sm:text-left flex sm:flex-col items-center sm:items-start gap-3 sm:gap-2">
-                <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-accent flex-shrink-0" />
-                <div>
-                  <div className="text-sm font-medium">Fast Delivery</div>
-                  <div className="text-xs text-muted-foreground">
-                    24-48 hours
-                  </div>
-                </div>
               </div>
-              <div className="text-center sm:text-left flex sm:flex-col items-center sm:items-start gap-3 sm:gap-2">
-                <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-accent flex-shrink-0" />
-                <div>
-                  <div className="text-sm font-medium">Quality Guarantee</div>
-                  <div className="text-xs text-muted-foreground">
-                    100% satisfaction
-                  </div>
+              <CardTitle className="text-3xl font-bold text-foreground">
+                {category.category}
+              </CardTitle>
+              <p className="text-sm text-muted-foreground">{unitLabel}</p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="space-y-3">
+                <div className="relative aspect-video overflow-hidden rounded-md border border-border bg-muted">
+                  <Image
+                    src={activeImage}
+                    alt={selectedItem?.name ?? category.category}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                 </div>
-              </div>
-              <div className="text-center sm:text-left flex sm:flex-col items-center sm:items-start gap-3 sm:gap-2">
-                <Truck className="w-5 h-5 sm:w-6 sm:h-6 text-accent flex-shrink-0" />
-                <div>
-                  <div className="text-sm font-medium">Free Delivery</div>
-                  <div className="text-xs text-muted-foreground">
-                    Lagos area
+                {carouselItems.length > 1 && (
+                  <div className="flex items-center justify-between gap-3">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="transition-transform duration-150 hover:-translate-y-0.5"
+                      onClick={() => goToIndex(currentIndex - 1)}
+                    >
+                      Previous
+                    </Button>
+                    <div className="flex flex-wrap justify-center gap-2">
+                      {carouselItems.map((item, idx) => (
+                        <button
+                          key={item.option}
+                          type="button"
+                          onClick={() => goToIndex(idx)}
+                          className={`h-2.5 w-2.5 rounded-full transition-all ${
+                            idx === currentIndex
+                              ? "bg-slate-900"
+                              : "bg-muted-foreground/40 hover:bg-muted-foreground/70"
+                          }`}
+                          aria-label={`Show ${item.option}`}
+                        />
+                      ))}
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="transition-transform duration-150 hover:-translate-y-0.5"
+                      onClick={() => goToIndex(currentIndex + 1)}
+                    >
+                      Next
+                    </Button>
                   </div>
-                </div>
+                )}
               </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Product Details Tabs */}
-        <div className="mt-12 sm:mt-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+              <div className="flex items-baseline gap-3">
+                <span className="text-4xl font-bold text-slate-900">
+                  {priceLabel ?? "Contact for price"}
+                </span>
+                {selectedItem?.unit && priceLabel && (
+                  <span className="text-sm text-muted-foreground">
+                    {selectedItem.unit}
+                  </span>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-muted-foreground">
+                  Available options
+                </p>
+                <Select
+                  value={selectedOption}
+                  onValueChange={setSelectedOption}
+                >
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select an option" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {category.options.map((option) => (
+                      <SelectItem key={option} value={option}>
+                        {option}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-muted-foreground">
+                  Special notes
+                </p>
+                <Textarea
+                  placeholder="Add any specifications, quantities, or questions..."
+                  value={notes}
+                  onChange={(event) => setNotes(event.target.value)}
+                  className="min-h-[120px]"
+                />
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                {shouldShowWhatsApp ? (
+                  <Button
+                    onClick={handleWhatsApp}
+                    className="w-full sm:w-auto bg-[#25D366] text-white transition-transform duration-150 hover:-translate-y-0.5 hover:bg-[#20BA5A]"
+                  >
+                    Contact on WhatsApp
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={handleAddToCart}
+                    disabled={isAdding}
+                    className="w-full sm:w-auto transition-transform duration-150 hover:-translate-y-0.5"
+                  >
+                    {isAdding ? "Adding..." : "Add to cart"}
+                  </Button>
+                )}
+              </div>
+
+              {statusMessage && (
+                <div
+                  className="text-sm font-medium text-emerald-700"
+                  aria-live="polite"
+                >
+                  {statusMessage}
+                </div>
+              )}
+
+              <div className="rounded-md border border-dashed border-border bg-muted/40 px-3 py-3 text-sm text-muted-foreground">
+                {selectedItem?.unit ?? "Custom specifications available"}
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg sm:text-xl">
-                  Features & Benefits
-                </CardTitle>
+                <CardTitle className="text-lg">What you get</CardTitle>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  {product.features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg sm:text-xl">
-                  Specifications
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <dl className="space-y-2">
-                  {Object.entries(product.specifications).map(
-                    ([key, value]) => (
-                      <div
-                        key={key}
-                        className="flex flex-col sm:flex-row sm:justify-between text-sm gap-1 sm:gap-0"
-                      >
-                        <dt className="font-medium text-muted-foreground">
-                          {key}:
-                        </dt>
-                        <dd className="text-foreground">{value}</dd>
-                      </div>
-                    )
-                  )}
-                </dl>
+              <CardContent className="space-y-3 text-sm text-muted-foreground">
+                <div className="rounded-md border border-border bg-slate-50 px-3 py-2 text-foreground">
+                  Category: {category.category}
+                </div>
+                <div className="rounded-md border border-border px-3 py-2">
+                  <p className="font-medium text-foreground">Options</p>
+                  <ul className="mt-2 list-disc space-y-1 pl-5">
+                    {category.options.map((option) => (
+                      <li key={option}>{option}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rounded-md border border-border px-3 py-2">
+                  <p className="font-medium text-foreground">Pricing</p>
+                  <p className="mt-1">
+                    {priceLabel
+                      ? `${priceLabel}${
+                          selectedItem?.unit ? ` (${selectedItem.unit})` : ""
+                        }`
+                      : "Contact us for pricing details and customization."}
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </div>

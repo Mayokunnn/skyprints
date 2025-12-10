@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color palette for Skyprint Global Limited branding */
+  /* Updated color palette for The Skyprint Global Services Limited branding */
   --background: oklch(1 0 0); /* White */
   --foreground: oklch(0.2 0.05 240); /* Dark Blue #003366 */
   --card: oklch(0.98 0 0); /* Light Gray background for cards */

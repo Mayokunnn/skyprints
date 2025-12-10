@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -17,6 +18,25 @@ import {
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { DotBackground } from "@/components/dot-background";
+
+export const metadata: Metadata = {
+  title: "Get a Quote | The Skyprint Global Services Limited",
+  description:
+    "Request a custom quote for your printing and branding project. Fill out our quick form and get a personalized quote from our team.",
+  keywords: [
+    "printing quote",
+    "custom quote",
+    "printing estimate",
+    "branding quote",
+  ],
+  openGraph: {
+    title: "Get a Quote | The Skyprint Global Services Limited",
+    description:
+      "Request a custom quote for your printing and branding project.",
+    type: "website",
+    url: "https://skyprints.vercel.app/quote",
+  },
+};
 
 export default function QuotePage() {
   const services = [
@@ -73,9 +93,7 @@ export default function QuotePage() {
           <div className="container mx-auto px-4">
             <div className="text-center max-w-4xl mx-auto relative z-10">
               <div className="max-w-4xl mx-auto text-center">
-                <Badge className="mb-3 ">
-                  Request a Quote
-                </Badge>
+                <Badge className="mb-3 ">Request a Quote</Badge>
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
                   Get Your Custom
                   <span className="text-orange-400"> Printing Quote</span>

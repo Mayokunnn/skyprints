@@ -59,25 +59,25 @@ export function Footer() {
             <h4 className="font-bold text-base sm:text-lg">Services</h4>
             <nav className="flex flex-col space-y-2">
               <Link
-                href="/services/corporate-branding"
+                href="/services"
                 className="text-sm opacity-80 hover:opacity-100 transition-opacity"
               >
                 Corporate Branding
               </Link>
               <Link
-                href="/services/technical-printing"
+                href="/services"
                 className="text-sm opacity-80 hover:opacity-100 transition-opacity"
               >
                 Technical Printing
               </Link>
               <Link
-                href="/services/merchandise"
+                href="/services"
                 className="text-sm opacity-80 hover:opacity-100 transition-opacity"
               >
                 Merchandise
               </Link>
               <Link
-                href="/services/event-branding"
+                href="/services"
                 className="text-sm opacity-80 hover:opacity-100 transition-opacity"
               >
                 Event Branding
@@ -114,7 +114,7 @@ export function Footer() {
         <div className="border-t border-primary-foreground/20 mt-8 sm:mt-12 pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 text-center sm:text-left">
             <p className="text-sm opacity-80">
-              © 2025 Skyprint Global Limited. All rights reserved.
+              © 2025 The Skyprint Global Services Limited. All rights reserved.
             </p>
           </div>
         </div>

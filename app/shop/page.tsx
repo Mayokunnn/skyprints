@@ -1,4 +1,6 @@
-"use client";
+import type { Metadata } from "next";
+
+("use client");
 
 import { useState } from "react";
 import { Header } from "@/components/header";
@@ -11,6 +13,27 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Filter, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
+export const metadata: Metadata = {
+  title: "Shop | Corporate Printing Products & Solutions",
+  description:
+    "Browse our complete catalog of corporate printing products including business cards, brochures, merchandise, banners, and branding solutions. Custom printing for businesses in Nigeria.",
+  keywords: [
+    "shop corporate printing",
+    "custom printing products",
+    "business cards",
+    "merchandise printing",
+    "banners",
+    "brochures",
+  ],
+  openGraph: {
+    title: "Shop | Corporate Printing Products & Solutions",
+    description:
+      "Browse our complete catalog of corporate printing products including business cards, brochures, merchandise, banners, and branding solutions.",
+    type: "website",
+    url: "https://skyprints.vercel.app/shop",
+  },
+};
+
 export default function ShopPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -18,26 +41,25 @@ export default function ShopPage() {
     <main className="min-h-screen">
       <Header />
 
-        {/* Page Header */}
-        <section className="bg-muted/30 py-8 md:py-12">
-          <div className="container mx-auto px-4">
-            <div className="text-center">
-              <h1 className="text-3xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 text-balance">
-                Corporate Printing Solutions
-              </h1>
-              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-                Browse our comprehensive catalog of printing and branding
-                products designed for corporate excellence.
-              </p>
-            </div>
+      {/* Page Header */}
+      <section className="bg-muted/30 py-8 md:py-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h1 className="text-3xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 text-balance">
+              Corporate Printing Solutions
+            </h1>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+              Browse our comprehensive catalog of printing and branding products
+              designed for corporate excellence.
+            </p>
           </div>
-        </section>
+        </div>
+      </section>
 
       {/* Shop Content */}
       <section className="py-6 md:py-12">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-6 lg:hidden">
-
             <Link href="/cart">
               <Button variant="outline" size="sm">
                 <ShoppingCart className="h-4 w-4 mr-2" />

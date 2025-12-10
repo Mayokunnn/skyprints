@@ -1,0 +1,32 @@
+# Robots.txt for The Skyprint Global Services Limited
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /cart
+Disallow: /checkout
+Disallow: /*.json$
+Disallow: /?*
+Disallow: /*?*
+Disallow: /*utm*
+Disallow: /admin
+Disallow: /private
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Specific rules for Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Disallow bad bots
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: DotBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://skyprints.vercel.app/sitemap.xml

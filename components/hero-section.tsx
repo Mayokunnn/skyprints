@@ -113,9 +113,10 @@ export function HeroSection({ className }: { className?: string }) {
               transition={{ delay: 0.6, duration: 0.8, ease: "easeInOut" }}
               className="text-base sm:text-lg leading-relaxed text-pretty max-w-2xl mx-auto"
             >
-              Skyprint Global Limited delivers bespoke corporate branding,
-              technical printing, promotional merchandise, and exhibition
-              solutions with unmatched speed, quality, and cost-effectiveness.
+              The Skyprint Global Services Limited delivers bespoke corporate
+              branding, technical printing, promotional merchandise, and
+              exhibition solutions with unmatched speed, quality, and
+              cost-effectiveness.
             </motion.p>
           </div>
 

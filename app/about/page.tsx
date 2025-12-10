@@ -1,4 +1,6 @@
-"use client";
+import type { Metadata } from "next";
+
+("use client");
 
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
@@ -9,6 +11,26 @@ import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { DotBackground } from "@/components/dot-background";
+
+export const metadata: Metadata = {
+  title: "About Us | The Skyprint Global Services Limited",
+  description:
+    "Learn about The Skyprint Global Services Limited, a leading corporate printing and branding solutions provider in Lagos, Nigeria. We deliver quality, integrity, and excellence in every project.",
+  keywords: [
+    "about skyprint",
+    "company values",
+    "printing company",
+    "branding company",
+    "Lagos Nigeria",
+  ],
+  openGraph: {
+    title: "About Us | The Skyprint Global Services Limited",
+    description:
+      "Learn about The Skyprint Global Services Limited and our commitment to quality and excellence.",
+    type: "website",
+    url: "https://skyprints.vercel.app/about",
+  },
+};
 
 export default function AboutPage() {
   const values = [
@@ -88,7 +110,7 @@ export default function AboutPage() {
                   variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
                 >
                   <Badge className="mb-3">
-                    About Skyprint Global Limited
+                    About The Skyprint Global Services Limited
                   </Badge>
                 </motion.div>
                 <motion.h1
@@ -141,7 +163,7 @@ export default function AboutPage() {
                 <p>
                   Founded in 2014 in the heart of Lagos,{" "}
                   <span className="uppercase font-bold">
-                    SKYPRINT GLOBAL LIMITED
+                    The Skyprint Global Services Limited
                   </span>{" "}
                   is a digital printing solution hub, we offer the full range of
                   branding support and print services to a variety of clients
@@ -364,8 +386,8 @@ export default function AboutPage() {
             Ready to Work With Us?
           </h2>
           <p className="text-xl  mb-8 max-w-2xl mx-auto">
-            Join hundreds of satisfied clients who trust Skyprint Global Limited
-            for their printing and branding needs.
+            Join hundreds of satisfied clients who trust The Skyprint Global
+            Services Limited for their printing and branding needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.div whileHover={{ scale: 1.05 }}>

@@ -44,6 +44,9 @@ export default function CartPage() {
       message += `   💰 Price: ₦${item.price.toLocaleString()}\n`;
       message += `   📊 Quantity: ${item.quantity} pieces\n`;
 
+      if (item.options.option)
+        message += `   🔖 Option: ${item.options.option}\n`;
+      if (item.options.unit) message += `   📦 Unit: ${item.options.unit}\n`;
       if (item.options.size) message += `   📏 Size: ${item.options.size}\n`;
       if (item.options.material)
         message += `   🏗️ Material: ${item.options.material}\n`;

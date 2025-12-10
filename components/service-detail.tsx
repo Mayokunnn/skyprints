@@ -24,7 +24,6 @@ interface ServiceDetailProps {
 }
 
 export function ServiceDetail({ slug }: ServiceDetailProps) {
-  // Mock service data - in real app, fetch based on slug
   const getServiceData = (slug: string) => {
     const services = {
       "corporate-branding": {

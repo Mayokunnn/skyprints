@@ -1,9 +1,24 @@
+import type { Metadata } from "next";
 import { Header } from "@/components/header";
 import { HeroSection, products } from "@/components/hero-section";
 import { ServicesGrid } from "@/components/services-grid";
 import { WhyChooseUs } from "@/components/why-choose-us";
 import { Footer } from "@/components/footer";
 import { HeroParallax } from "@/components/ui/hero-parallax";
+
+export const metadata: Metadata = {
+  title: "Home | Corporate Printing & Branding Solutions",
+  description:
+    "The Skyprint Global Services Limited offers professional corporate printing solutions including business cards, merchandise, banners, and branding services in Lagos, Nigeria.",
+  openGraph: {
+    title:
+      "The Skyprint Global Services Limited - Corporate Printing & Branding Solutions",
+    description:
+      "Professional printing solutions for corporate branding, technical printing, merchandise, and event branding.",
+    type: "website",
+    url: "https://skyprints.vercel.app",
+  },
+};
 
 export default function HomePage() {
   return (
@@ -12,7 +27,7 @@ export default function HomePage() {
 
       {/* Hero content floats above parallax */}
       <div className="relative z-0">
-          <HeroParallax products={products} />
+        <HeroParallax products={products} />
       </div>
 
       {/* Other sections stack normally below */}
