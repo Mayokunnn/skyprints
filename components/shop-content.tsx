@@ -16,18 +16,6 @@ export function ShopContent() {
     <section className="py-6 md:py-12">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-6 lg:hidden">
-          <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="sm">
-                <Filter className="h-4 w-4 mr-2" />
-                Filters
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="w-80">
-              <CategorySidebar />
-            </SheetContent>
-          </Sheet>
-
           <Link href="/cart">
             <Button variant="outline" size="sm">
               <ShoppingCart className="h-4 w-4 mr-2" />
