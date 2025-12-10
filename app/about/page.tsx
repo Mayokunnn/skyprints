@@ -47,20 +47,20 @@ export default function AboutPage() {
     "24/7 Customer Support",
   ];
 
-  const team = [
-    {
-      name: "Adebayo Johnson",
-      role: "Chief Executive Officer",
-      experience: "15+ years in printing industry",
-      image: "/professional-nigerian-ceo-in-business-suit.jpg",
-    },
-    {
-      name: "Funmi Adebayo",
-      role: "Creative Director",
-      experience: "12+ years in graphic design",
-      image: "/professional-nigerian-female-creative-director.jpg",
-    },
-  ];
+  // const team = [
+  //   {
+  //     name: "Adebayo Johnson",
+  //     role: "Chief Executive Officer",
+  //     experience: "15+ years in printing industry",
+  //     image: "/professional-nigerian-ceo-in-business-suit.jpg",
+  //   },
+  //   {
+  //     name: "Funmi Adebayo",
+  //     role: "Creative Director",
+  //     experience: "12+ years in graphic design",
+  //     image: "/professional-nigerian-female-creative-director.jpg",
+  //   },
+  // ];
 
   return (
     <div className="min-h-screen bg-white">

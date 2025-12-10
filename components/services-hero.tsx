@@ -40,7 +40,7 @@ export function ServicesHero() {
               size="lg"
               className="bg-slate-900 hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg"
             >
-              <Link href="/contact">Get Custom Quote</Link>
+              <Link href="/quote">Get Custom Quote</Link>
             </Button>
             <Button
               asChild

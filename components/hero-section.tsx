@@ -9,47 +9,47 @@ import { DotBackground } from "./dot-background";
 
 export const products = [
   {
-    title: "Branded Coffee Mugs",
-    thumbnail: "/branded-promotional-coffee-mugs.jpg",
+    title: "Customized Coffee Mugs",
+    thumbnail: "/products/customized-mug.jpg",
   },
   {
-    title: "Business Cards Printing",
-    thumbnail: "/business-cards-printing-process.jpg",
+    title: "Business Cards",
+    thumbnail: "/products/one-sided-business-card.webp",
   },
   {
-    title: "Corporate Polo Shirts",
-    thumbnail: "/corporate-branded-polo-shirts.jpg",
+    title: "Corporate T-Shirts",
+    thumbnail: "/products/customized-t-shirt.png",
   },
   {
-    title: "Corporate Identity",
-    thumbnail: "/corporate-branding-identity-design.jpg",
+    title: "Perfect Binding Brochures",
+    thumbnail: "/products/a4-perfect-binding-brochure.jpg",
   },
   {
-    title: "Brochure Printing",
-    thumbnail: "/corporate-brochure-design-printing.jpg",
+    title: "Promotional Flyers",
+    thumbnail: "/products/a5-double-side-flyers.jpg",
   },
   {
-    title: "Letterhead Printing",
-    thumbnail: "/corporate-letterhead-design-printing.jpg",
+    title: "Table Calendars",
+    thumbnail: "/products/a5-table-calendar.jpg",
   },
   {
-    title: "Presentation Folders",
-    thumbnail: "/corporate-presentation-folders.jpg",
+    title: "Custom Gift Boxes",
+    thumbnail: "/products/customized-gift-box.jpg",
   },
   {
-    title: "Product Packaging",
-    thumbnail: "/custom-product-packaging-boxes.jpg",
+    title: "Customized Pens",
+    thumbnail: "/products/customized-pen.jpg",
   },
   {
-    title: "Digital Printing",
-    thumbnail: "/digital-printing-services.jpg",
+    title: "Invitation Cards",
+    thumbnail: "/products/customized-invitation-card.jpg",
   },
   {
-    title: "Exhibition Stands",
-    thumbnail: "/exhibition-banner-stands-display.jpg",
+    title: "Roll-Up Banners",
+    thumbnail: "/products/roll-up-banner.jpg",
   },
   {
-    title: "Safety Signage",
+    title: "Industrial Safety Signage",
     thumbnail: "/industrial-safety-signage-printing.jpg",
   },
   {
@@ -57,27 +57,27 @@ export const products = [
     thumbnail: "/large-format-printing-banners.jpg",
   },
   {
-    title: "Printing Facility",
-    thumbnail: "/modern-printing-facility-with-large-format-printer.jpg",
+    title: "Corporate Diaries",
+    thumbnail: "/products/corporate-diary.jpg",
   },
   {
-    title: "Packaging Design",
-    thumbnail: "/packaging-design-solutions.jpg",
+    title: "Hard Cover Jotters",
+    thumbnail: "/products/hard-cover-jotter.jpg",
   },
   {
-    title: "Business Card Back",
-    thumbnail: "/professional-business-cards-design-back.jpg",
+    title: "Two-Sided Business Cards",
+    thumbnail: "/products/two-sided-business-card.webp",
   },
   {
-    title: "Business Card Front",
-    thumbnail: "/professional-business-cards-design-front.jpg",
+    title: "Professional Invoices",
+    thumbnail: "/products/company-invoice.jpg",
   },
   {
-    title: "Business Card Set",
-    thumbnail: "/professional-business-cards-design.jpg",
+    title: "Custom Water Bottles",
+    thumbnail: "/products/customized-water-bottle.jpg",
   },
   {
-    title: "Technical Manuals",
+    title: "Technical Documentation",
     thumbnail: "/technical-manual-printing-documentation.jpg",
   },
 ];

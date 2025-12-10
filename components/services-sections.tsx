@@ -22,7 +22,7 @@ const services = [
     title: "Corporate Branding & Identity",
     description:
       "Complete brand identity solutions that establish your corporate presence with professional consistency across all materials.",
-    image: "/corporate-branding-identity-design.jpg",
+    image: "/products/one-sided-business-card.webp",
     features: [
       "Logo design and brand guidelines",
       "Business cards and stationery",
@@ -38,33 +38,12 @@ const services = [
     pricing: "Starting from ₦25,000",
   },
   {
-    id: "technical-printing",
-    icon: Printer,
-    title: "Technical & Commercial Printing",
-    description:
-      "High-precision printing for technical documentation, manuals, reports, and specialized commercial materials.",
-    image: "/technical-manual-printing-documentation.jpg",
-    features: [
-      "Technical manuals and documentation",
-      "Engineering drawings and blueprints",
-      "Safety manuals and procedures",
-      "Training materials and guides",
-      "Large format technical prints",
-    ],
-    benefits: [
-      "Industry-standard compliance",
-      "Durable materials",
-      "Precise color reproduction",
-    ],
-    pricing: "Starting from ₦15,000",
-  },
-  {
     id: "merchandise",
     icon: Award,
     title: "Corporate Merchandise",
     description:
       "Branded promotional items, corporate gifts, and professional uniforms that represent your company with pride.",
-    image: "/corporate-branded-polo-shirts.jpg",
+    image: "/products/corporate-merchandise.jpg",
     features: [
       "Branded apparel and uniforms",
       "Promotional gifts and giveaways",
@@ -77,7 +56,6 @@ const services = [
       "Brand visibility",
       "Professional appearance",
     ],
-    pricing: "Starting from ₦5,000",
   },
   {
     id: "event-branding",
@@ -85,7 +63,7 @@ const services = [
     title: "Event & Exhibition Branding",
     description:
       "Complete event branding solutions including displays, signage, and promotional materials for exhibitions and corporate events.",
-    image: "/exhibition-banner-stands-display.jpg",
+    image: "/products/roll-up-banner.jpg",
     features: [
       "Exhibition stands and displays",
       "Event banners and signage",
@@ -98,7 +76,6 @@ const services = [
       "Increased brand visibility",
       "Memorable experiences",
     ],
-    pricing: "Starting from ₦35,000",
   },
   {
     id: "packaging",
@@ -106,7 +83,7 @@ const services = [
     title: "Packaging & Label Printing",
     description:
       "Custom packaging solutions and professional labeling that protects your products while promoting your brand.",
-    image: "/custom-product-packaging-boxes.jpg",
+    image: "/products/customized-gift-box.jpg",
     features: [
       "Custom product packaging boxes",
       "Industrial labels and stickers",
@@ -119,7 +96,6 @@ const services = [
       "Brand differentiation",
       "Professional presentation",
     ],
-    pricing: "Starting from ₦20,000",
   },
   {
     id: "digital-offset",
@@ -127,7 +103,7 @@ const services = [
     title: "Digital & Offset Printing Solutions",
     description:
       "Advanced printing technologies for high-volume runs and specialized printing requirements with superior quality.",
-    image: "/digital-printing-services.jpg",
+    image: "/products/a4-perfect-binding-brochure.jpg",
     features: [
       "High-volume digital printing",
       "Offset printing for large runs",
@@ -140,7 +116,6 @@ const services = [
       "Superior print quality",
       "Flexible printing options",
     ],
-    pricing: "Custom pricing available",
   },
 ];
 
@@ -168,13 +143,12 @@ export function ServicesSections() {
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                     <service.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <Badge variant="secondary">{service.pricing}</Badge>
-                </div>
-                <div>
-                  <h2 className="text-3xl font-bold text-foreground mb-4">
+                  <h2 className="text-3xl font-bold text-foreground">
                     {" "}
                     {service.title}
                   </h2>
+                </div>
+                <div>
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     {" "}
                     {service.description}{" "}
