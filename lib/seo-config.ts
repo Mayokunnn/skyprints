@@ -26,7 +26,7 @@ export const seoConfig = {
   },
   business: {
     hours: {
-      weekday: { open: "09:00", close: "18:00" },
+      weekday: { open: "08:00", close: "18:00" },
       saturday: { open: "10:00", close: "16:00" },
     },
     established: "2015",
