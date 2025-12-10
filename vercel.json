@@ -2,7 +2,6 @@
   "buildCommand": "next build",
   "installCommand": "pnpm install",
   "framework": "nextjs",
-  "nodeVersion": "20.x",
   "env": {
     "NEXT_PUBLIC_SITE_URL": {
       "value": "https://skyprints.vercel.app"
