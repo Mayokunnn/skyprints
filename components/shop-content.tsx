@@ -35,7 +35,6 @@ export function ShopContent() {
                 </Button>
               </Link>
             </div>
-            <ProductFilters />
             <ProductGrid />
           </div>
         </div>
