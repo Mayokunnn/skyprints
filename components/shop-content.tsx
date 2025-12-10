@@ -25,11 +25,6 @@ export function ShopContent() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
-          {/* Sidebar */}
-          <aside className="hidden lg:block">
-            <CategorySidebar />
-          </aside>
-
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-4 md:space-y-6">
             <div className="hidden lg:flex justify-between items-center">
