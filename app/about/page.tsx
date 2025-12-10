@@ -1,7 +1,6 @@
+"use client";
+
 import type { Metadata } from "next";
-
-("use client");
-
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";

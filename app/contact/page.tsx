@@ -1,7 +1,6 @@
+"use client";
+
 import type { Metadata } from "next";
-
-("use client");
-
 import { motion } from "framer-motion";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
