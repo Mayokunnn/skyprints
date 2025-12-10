@@ -1,9 +1,15 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/lib/helpers";
-import { productSlug } from "@/lib/helpers";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://skyprints.vercel.app";
+
+  // Create a safe slugifier inside this file
+  const slugify = (str: string) =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
@@ -45,11 +51,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Dynamic product pages
+  // Dynamic product pages (fully static now)
   const productPages: MetadataRoute.Sitemap = products.map((product) => ({
-    url: `${baseUrl}/shop/product/${productSlug(product.category)}`,
+    url: `${baseUrl}/shop/product/${slugify(product.category)}`,
     lastModified: new Date(),
-    changeFrequency: "monthly" as const,
+    changeFrequency: "monthly",
     priority: 0.8,
   }));
 
