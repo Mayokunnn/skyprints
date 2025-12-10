@@ -1,77 +1,14 @@
-import type { Metadata } from "next";
+"use client";
+
+import { motion } from "motion/react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle, Award, Globe, Clock, Shield } from "lucide-react";
+import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { DotBackground } from "@/components/dot-background";
-import { AboutContent } from "@/components/about-content";
-
-export const metadata: Metadata = {
-  title: "About Us | The Skyprint Global Services Limited",
-  description:
-    "Learn about The Skyprint Global Services Limited, a leading corporate printing and branding solutions provider in Lagos, Nigeria. We deliver quality, integrity, and excellence in every project.",
-  keywords: [
-    "about skyprint",
-    "company values",
-    "printing company",
-    "branding company",
-    "Lagos Nigeria",
-  ],
-  openGraph: {
-    title: "About Us | The Skyprint Global Services Limited",
-    description:
-      "Learn about The Skyprint Global Services Limited and our commitment to quality and excellence.",
-    type: "website",
-    url: "https://skyprints.vercel.app/about",
-  },
-};
-
-export default function AboutPage() {
-  return (
-    <main className="min-h-screen">
-      <Header />
-      <DotBackground>
-        <section className="relative py-32 flex h-screen items-center">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-4xl mx-auto relative z-10">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
-                About
-                <span className="text-orange-400"> Skyprint</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground">
-                Pioneering excellence in corporate printing and branding
-                solutions since 2015
-              </p>
-            </div>
-          </div>
-        </section>
-      </DotBackground>
-
-      {/* Interactive Content */}
-      <AboutContent />
-
-      <Footer />
-    </main>
-  );
-}
-
-export const metadata: Metadata = {
-  title: "About Us | The Skyprint Global Services Limited",
-  description:
-    "Learn about The Skyprint Global Services Limited, a leading corporate printing and branding solutions provider in Lagos, Nigeria. We deliver quality, integrity, and excellence in every project.",
-  keywords: [
-    "about skyprint",
-    "company values",
-    "printing company",
-    "branding company",
-    "Lagos Nigeria",
-  ],
-  openGraph: {
-    title: "About Us | The Skyprint Global Services Limited",
-    description:
-      "Learn about The Skyprint Global Services Limited and our commitment to quality and excellence.",
-    type: "website",
-    url: "https://skyprints.vercel.app/about",
-  },
-};
 
 export default function AboutPage() {
   const values = [

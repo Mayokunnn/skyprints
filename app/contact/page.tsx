@@ -1,75 +1,27 @@
-import type { Metadata } from "next";
+"use client";
+
+import { motion } from "framer-motion";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { FaWhatsapp } from "react-icons/fa";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  MessageSquare,
+  Send,
+  Building2,
+  Users,
+  Printer,
+} from "lucide-react";
 import { DotBackground } from "@/components/dot-background";
-import { ContactContent } from "@/components/contact-content";
-
-export const metadata: Metadata = {
-  title: "Contact Us | The Skyprint Global Services Limited",
-  description:
-    "Get in touch with The Skyprint Global Services Limited. Contact us via phone, email, or visit our Lagos office. We're ready to discuss your printing and branding needs.",
-  keywords: [
-    "contact skyprint",
-    "printing quotes",
-    "Lagos office",
-    "customer service",
-  ],
-  openGraph: {
-    title: "Contact Us | The Skyprint Global Services Limited",
-    description:
-      "Get in touch with The Skyprint Global Services Limited for your printing and branding needs.",
-    type: "website",
-    url: "https://skyprints.vercel.app/contact",
-  },
-};
-
-export default function ContactPage() {
-  return (
-    <main className="min-h-screen">
-      <Header />
-      <DotBackground>
-        <section className="relative py-32 flex h-screen items-center">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-4xl mx-auto relative z-10">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
-                Get In
-                <span className="text-orange-400"> Touch</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground">
-                Let's discuss your next printing project and bring your vision
-                to life
-              </p>
-            </div>
-          </div>
-        </section>
-      </DotBackground>
-
-      {/* Interactive Content */}
-      <ContactContent />
-
-      <Footer />
-    </main>
-  );
-}
-
-export const metadata: Metadata = {
-  title: "Contact Us | The Skyprint Global Services Limited",
-  description:
-    "Get in touch with The Skyprint Global Services Limited. Contact us via phone, email, or visit our Lagos office. We're ready to discuss your printing and branding needs.",
-  keywords: [
-    "contact skyprint",
-    "printing quotes",
-    "Lagos office",
-    "customer service",
-  ],
-  openGraph: {
-    title: "Contact Us | The Skyprint Global Services Limited",
-    description:
-      "Get in touch with The Skyprint Global Services Limited for your printing and branding needs.",
-    type: "website",
-    url: "https://skyprints.vercel.app/contact",
-  },
-};
 
 export default function ContactPage() {
   const contactInfo = [

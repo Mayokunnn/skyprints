@@ -13,9 +13,7 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   // Enable ISR (Incremental Static Regeneration) for better SEO
-  experimental: {
-    isrMemoryCacheSize: 50 * 1024 * 1024,
-  },
+  cacheMaxMemorySize: 50 * 1024 * 1024,
   // Compression
   compress: true,
   // Headers for caching and security
