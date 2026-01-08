@@ -8,17 +8,17 @@ export const seoConfig = {
     logo: "https://skyprints.vercel.app/logo.png",
     ogImage: "https://skyprints.vercel.app/og_image.png",
   },
-  social: {
-    twitter: "@skyprint",
-    facebook: "skyprint.global",
-    instagram: "skyprint.global",
-    linkedin: "skyprint-global-limited",
-  },
+  // social: {
+  //   twitter: "@skyprint",
+  //   facebook: "skyprint.global",
+  //   instagram: "skyprint.global",
+  //   linkedin: "skyprint-global-limited",
+  // },
   contact: {
     phone: "+2348067614781",
     email: "info@skyprint.com",
     address: {
-      street: "Your Street Address",
+      street: "2, Ayinde Street, Off Ikate",
       city: "Lagos",
       state: "Lagos",
       country: "Nigeria",
@@ -29,7 +29,7 @@ export const seoConfig = {
       weekday: { open: "08:00", close: "18:00" },
       saturday: { open: "10:00", close: "16:00" },
     },
-    established: "2015",
+    established: "2014",
   },
 };
 

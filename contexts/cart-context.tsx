@@ -1,7 +1,13 @@
 "use client";
 
 import type React from "react";
-import { createContext, useContext, useReducer, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useReducer,
+  useEffect,
+  useState,
+} from "react";
 
 export interface CartItem {
   id: string;
@@ -128,6 +134,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -140,12 +147,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         console.error("Failed to load cart from localStorage:", error);
       }
     }
+    setIsLoaded(true);
   }, []);
 
-  // Save cart to localStorage whenever it changes
+  // Save cart to localStorage whenever it changes (only after initial load)
   useEffect(() => {
-    localStorage.setItem("skyprint-cart", JSON.stringify(state.items));
-  }, [state.items]);
+    if (isLoaded) {
+      localStorage.setItem("skyprint-cart", JSON.stringify(state.items));
+    }
+  }, [state.items, isLoaded]);
 
   const addItem = (item: CartItem) => {
     dispatch({ type: "ADD_ITEM", payload: item });

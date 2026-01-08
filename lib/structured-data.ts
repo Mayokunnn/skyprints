@@ -11,18 +11,18 @@ export const companyStructuredData = {
   logo: "https://skyprints.vercel.app/logo.png",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Your Street Address",
+    streetAddress: "2, Ayinde Street, Off Ikate",
     addressLocality: "Lagos",
     addressRegion: "Lagos",
-    postalCode: "00000",
+    postalCode: "100001",
     addressCountry: "NG",
   },
-  sameAs: [
-    "https://www.facebook.com/skyprint",
-    "https://www.twitter.com/skyprint",
-    "https://www.linkedin.com/company/skyprint",
-    "https://www.instagram.com/skyprint",
-  ],
+  // sameAs: [
+  //   "https://www.facebook.com/skyprint",
+  //   "https://www.twitter.com/skyprint",
+  //   "https://www.linkedin.com/company/skyprint",
+  //   "https://www.instagram.com/skyprint",
+  // ],
   priceRange: "₦1,000 - ₦500,000+",
   openingHoursSpecification: [
     {

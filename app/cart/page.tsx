@@ -23,6 +23,8 @@ export default function CartPage() {
     getWhatsAppMessage,
   } = useCart();
 
+  console.log(items);
+
   const handleWhatsAppOrder = () => {
     const phoneNumber = "2348067614781"; // Skyprint Global WhatsApp number
     const message = getWhatsAppMessage();
@@ -40,26 +42,25 @@ export default function CartPage() {
       "Hello! I'm interested in bulk pricing for the following items:\n\n";
 
     items.forEach((item, index) => {
-      message += `${index + 1}. 📦 *${item.name}*\n`;
-      message += `   💰 Price: ₦${item.price.toLocaleString()}\n`;
-      message += `   📊 Quantity: ${item.quantity} pieces\n`;
+      message += `${index + 1}. *${item.name}*\n`;
+      message += `   Price: ₦${item.price.toLocaleString()}\n`;
+      message += `   Quantity: ${item.quantity} pieces\n`;
 
-      if (item.options.option)
-        message += `   🔖 Option: ${item.options.option}\n`;
-      if (item.options.unit) message += `   📦 Unit: ${item.options.unit}\n`;
-      if (item.options.size) message += `   📏 Size: ${item.options.size}\n`;
+      if (item.options.option) message += `   Option: ${item.options.option}\n`;
+      if (item.options.unit) message += `   Unit: ${item.options.unit}\n`;
+      if (item.options.size) message += `   Size: ${item.options.size}\n`;
       if (item.options.material)
-        message += `   🏗️ Material: ${item.options.material}\n`;
+        message += `   Material: ${item.options.material}\n`;
       if (item.options.finish)
         message += `   ✨ Finish: ${item.options.finish}\n`;
-      if (item.options.color) message += `   🎨 Color: ${item.options.color}\n`;
+      if (item.options.color) message += `   Color: ${item.options.color}\n`;
 
-      message += `   💵 Subtotal: ₦${(
+      message += `   Subtotal: ₦${(
         item.price * item.quantity
       ).toLocaleString()}\n\n`;
     });
 
-    message += `🛒 *Total Order Value: ₦${total.toLocaleString()}*\n\n`;
+    message += `*Total Order Value: ₦${total.toLocaleString()}*\n\n`;
     message +=
       "I'm looking for bulk pricing and volume discounts. Please provide your best wholesale rates and delivery timeline. Thank you!";
 

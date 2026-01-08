@@ -75,7 +75,7 @@ export function ProductDetails({ productId }: ProductDetailsProps) {
       id: `${productId}-${selectedOption}`,
       name: category.category,
       price: selectedItem.price,
-      image: "/placeholder.svg",
+      image: getProductImage(selectedItem),
       quantity: 1,
       options: {
         option: selectedOption,
