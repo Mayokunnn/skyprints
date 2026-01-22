@@ -29,4 +29,4 @@ User-agent: DotBot
 Disallow: /
 
 # Sitemap location
-Sitemap: https://skyprints.vercel.app/sitemap.xml
+Sitemap: https://www.globalskyprint.com/sitemap.xml

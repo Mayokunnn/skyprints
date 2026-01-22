@@ -7,7 +7,7 @@ import { companyStructuredData } from "@/lib/structured-data";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://skyprints.vercel.app"),
+  metadataBase: new URL("https://www.globalskyprint.com"),
   title: {
     default:
       "The Skyprint Global Services Limited - Corporate Printing & Branding Solutions",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     description:
       "Professional printing solutions for corporate branding, technical printing, merchandise, and event branding in Lagos, Nigeria.",
     type: "website",
-    url: "https://skyprints.vercel.app",
+    url: "https://www.globalskyprint.com",
     siteName: "The Skyprint Global Services Limited",
     locale: "en_NG",
     images: [
@@ -133,7 +133,7 @@ export default function RootLayout({
         />
         <meta
           name="google-site-verification"
-          content="gQhhHlhPXvKYquPJ3kOq8A5M5B0hAEOUGJ_sC87UJH8"
+          content="vdugVCC7JKvPaf2ifMDLQftTNFFHrRG_uU3-Qv2k_94"
         />
       </head>
 

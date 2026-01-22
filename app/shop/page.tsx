@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description:
       "Browse our complete catalog of corporate printing products including business cards, brochures, merchandise, banners, and branding solutions.",
     type: "website",
-    url: "https://skyprints.vercel.app/shop",
+    url: "https://www.globalskyprint.com/shop",
   },
 };
 

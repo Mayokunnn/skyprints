@@ -24,6 +24,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: "/",
       },
     ],
-    sitemap: "https://skyprints.vercel.app/sitemap.xml",
+    sitemap: "https://www.globalskyprint.com/sitemap.xml",
   };
 }

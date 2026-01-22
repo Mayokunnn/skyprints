@@ -46,7 +46,7 @@ export async function generateMetadata({
       title,
       description,
       type: "website",
-      url: `https://skyprints.vercel.app/shop/product/${params.id}`,
+      url: `https://www.globalskyprint.com/shop/product/${params.id}`,
       images: [
         {
           url: productImage,
@@ -82,13 +82,13 @@ export default function ProductPage({ params }: ProductPageProps) {
 
   const defaultItem = findItemForOption(category, category.options[0] ?? "");
   const productImage = getProductImage(defaultItem);
-  const productUrl = `https://skyprints.vercel.app/shop/product/${params.id}`;
+  const productUrl = `https://www.globalskyprint.com/shop/product/${params.id}`;
   const structuredData = productStructuredData(
     category.category,
     `Shop our ${category.category} printing solutions.`,
     defaultItem?.price ?? null,
     productImage,
-    productUrl
+    productUrl,
   );
 
   return (

@@ -2,11 +2,11 @@
 export const seoConfig = {
   site: {
     name: "The Skyprint Global Services Limited",
-    url: "https://skyprints.vercel.app",
+    url: "https://www.globalskyprint.com",
     description:
       "Professional printing solutions for corporate branding, technical printing, merchandise, and event branding in Lagos, Nigeria.",
-    logo: "https://skyprints.vercel.app/logo.png",
-    ogImage: "https://skyprints.vercel.app/og_image.png",
+    logo: "https://www.globalskyprint.com/logo.png",
+    ogImage: "https://www.globalskyprint.com/og_image.png",
   },
   // social: {
   //   twitter: "@skyprint",
@@ -43,6 +43,9 @@ export const seoKeywords = {
     "Lagos Nigeria",
     "professional printing",
     "custom printing",
+    "printing services",
+    "event materials",
+    "technical printing",
     "event branding",
   ],
   products: [

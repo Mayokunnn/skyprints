@@ -6,9 +6,9 @@
 
 ```
 1. Go to https://search.google.com/search-console
-2. Add property: https://skyprints.vercel.app
+2. Add property: https://www.globalskyprint.com
 3. Verify ownership using HTML file or DNS method
-4. Submit sitemap: https://skyprints.vercel.app/sitemap.xml
+4. Submit sitemap: https://www.globalskyprint.com/sitemap.xml
 5. Wait for initial crawl (24-48 hours)
 ```
 
@@ -16,7 +16,7 @@
 
 ```
 1. Go to https://www.bing.com/webmasters
-2. Add site: https://skyprints.vercel.app
+2. Add site: https://www.globalskyprint.com
 3. Submit sitemap
 4. Import from Google Search Console if available
 ```
@@ -141,31 +141,28 @@ After deployment, monitor:
 
 ## 🔗 Key URLs
 
-- **Sitemap:** https://skyprints.vercel.app/sitemap.xml
-- **Robots:** https://skyprints.vercel.app/robots.txt
-- **Home:** https://skyprints.vercel.app
-- **Shop:** https://skyprints.vercel.app/shop
-- **Services:** https://skyprints.vercel.app/services
-- **About:** https://skyprints.vercel.app/about
-- **Contact:** https://skyprints.vercel.app/contact
-- **Quote:** https://skyprints.vercel.app/quote
+- **Sitemap:** https://www.globalskyprint.com/sitemap.xml
+- **Robots:** https://www.globalskyprint.com/robots.txt
+- **Home:** https://www.globalskyprint.com
+- **Shop:** https://www.globalskyprint.com/shop
+- **Services:** https://www.globalskyprint.com/services
+- **About:** https://www.globalskyprint.com/about
+- **Contact:** https://www.globalskyprint.com/contact
+- **Quote:** https://www.globalskyprint.com/quote
 
 ## ✨ Next Steps for Maximum SEO Impact
 
 1. **Content Creation**
-
    - Write blog posts targeting keywords
    - Create FAQ pages
    - Develop service guides
 
 2. **Link Building**
-
    - Build quality backlinks
    - Create shareable content
    - Reach out to industry partners
 
 3. **Local SEO**
-
    - Add Google Business Profile
    - Get local citations
    - Create location pages

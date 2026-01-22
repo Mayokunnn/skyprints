@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       "Get in touch with The Skyprint Global Services Limited for your printing and branding needs.",
     type: "website",
-    url: "https://skyprints.vercel.app/contact",
+    url: "https://www.globalskyprint.com/contact",
   },
 };
 

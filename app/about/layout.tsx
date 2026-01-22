@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       "Learn about The Skyprint Global Services Limited and our commitment to quality and excellence.",
     type: "website",
-    url: "https://skyprints.vercel.app/about",
+    url: "https://www.globalskyprint.com/about",
   },
 };
 

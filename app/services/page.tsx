@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description:
       "Explore our comprehensive printing and branding services for corporate excellence.",
     type: "website",
-    url: "https://skyprints.vercel.app/services",
+    url: "https://www.globalskyprint.com/services",
   },
 };
 

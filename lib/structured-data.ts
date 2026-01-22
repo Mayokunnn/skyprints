@@ -5,10 +5,10 @@ export const companyStructuredData = {
   name: "The Skyprint Global Services Limited",
   description:
     "Professional printing solutions for corporate branding, technical printing, merchandise, and event branding",
-  url: "https://skyprints.vercel.app",
+  url: "https://www.globalskyprint.com",
   telephone: "+2348067614781",
   email: "info@skyprint.com",
-  logo: "https://skyprints.vercel.app/logo.png",
+  logo: "https://www.globalskyprint.com/logo.png",
   address: {
     "@type": "PostalAddress",
     streetAddress: "2, Ayinde Street, Off Ikate",
@@ -38,7 +38,7 @@ export const companyStructuredData = {
       closes: "16:00",
     },
   ],
-  image: "https://skyprints.vercel.app/og_image.png",
+  image: "https://www.globalskyprint.com/og_image.png",
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.8",
@@ -51,7 +51,7 @@ export const productStructuredData = (
   description: string,
   price: number | null,
   image: string,
-  url: string
+  url: string,
 ) => ({
   "@context": "https://schema.org",
   "@type": "Product",
@@ -82,8 +82,8 @@ export const organizationStructuredData = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "The Skyprint Global Services Limited",
-  url: "https://skyprints.vercel.app",
-  logo: "https://skyprints.vercel.app/logo.png",
+  url: "https://www.globalskyprint.com",
+  logo: "https://www.globalskyprint.com/logo.png",
   description:
     "Professional printing solutions for corporate branding, technical printing, merchandise, and event branding",
   contactPoint: {

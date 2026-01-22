@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description:
       "Request a custom quote for your printing and branding project.",
     type: "website",
-    url: "https://skyprints.vercel.app/quote",
+    url: "https://www.globalskyprint.com/quote",
   },
 };
 

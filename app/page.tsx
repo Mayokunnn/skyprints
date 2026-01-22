@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       "Professional printing solutions for corporate branding, technical printing, merchandise, and event branding.",
     type: "website",
-    url: "https://skyprints.vercel.app",
+    url: "https://www.globalskyprint.com",
   },
 };
 

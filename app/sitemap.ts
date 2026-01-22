@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { products } from "@/lib/helpers";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://skyprints.vercel.app";
+  const baseUrl = "https://www.globalskyprint.com";
 
   // Create a safe slugifier inside this file
   const slugify = (str: string) =>
