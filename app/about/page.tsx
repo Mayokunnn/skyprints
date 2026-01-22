@@ -111,9 +111,9 @@ export default function AboutPage() {
                     visible: { opacity: 1, y: 0 },
                   }}
                 >
-                  Since 2014, we've been Lagos's premier printing and branding
-                  partner, delivering world-class solutions to corporations,
-                  institutions, and organizations across Nigeria.
+                  For a long time, we've been Lagos's premier printing and
+                  branding partner, delivering world-class solutions to
+                  corporations, institutions, and organizations across Nigeria.
                 </motion.p>
               </motion.div>
             </div>
@@ -139,7 +139,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-600">
                 <p>
-                  Founded in 2014 in the heart of Lagos,{" "}
+                  Founded in the heart of Lagos,{" "}
                   <span className="uppercase font-bold">
                     The Skyprint Global Services Limited
                   </span>{" "}
