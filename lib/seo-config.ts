@@ -36,6 +36,15 @@ export const seoConfig = {
 export const seoKeywords = {
   main: [
     "corporate printing",
+    "skyprint global services",
+    "skyprint",
+    "skyprint nigeria",
+    "skyprint lagos",
+    "printing company",
+    "skyprint global",
+    "skyprint services",
+    "printing solutions",
+    "corporate branding",
     "branding solutions",
     "merchandise printing",
     "business cards",

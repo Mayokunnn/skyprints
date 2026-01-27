@@ -93,8 +93,8 @@ export const organizationStructuredData = {
     email: "info@skyprint.com",
   },
   sameAs: [
-    "https://www.facebook.com/skyprint",
-    "https://www.twitter.com/skyprint",
-    "https://www.linkedin.com/company/skyprint",
+    // "https://www.facebook.com/skyprint",
+    // "https://www.twitter.com/skyprint",
+    // "https://www.linkedin.com/company/skyprint",
   ],
 };
