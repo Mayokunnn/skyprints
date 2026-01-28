@@ -5,6 +5,18 @@
   "env": {
     "NEXT_PUBLIC_SITE_URL": "https://www.globalskyprint.com"
   },
+  "redirects": [
+    {
+      "source": "http://globalskyprint.com/:path*",
+      "destination": "https://www.globalskyprint.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "https://globalskyprint.com/:path*",
+      "destination": "https://www.globalskyprint.com/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
