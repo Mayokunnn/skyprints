@@ -26,7 +26,7 @@ export default function CartPage() {
   console.log(items);
 
   const handleWhatsAppOrder = () => {
-    const phoneNumber = "2348067614781"; // Skyprint Global WhatsApp number
+    const phoneNumber = "2348067614781"; // Global Skyprint WhatsApp number
     const message = getWhatsAppMessage();
 
     if (!message) return;
@@ -153,7 +153,7 @@ export default function CartPage() {
 
                         {/* Options */}
                         {Object.entries(item.options).some(
-                          ([_, value]) => value
+                          ([_, value]) => value,
                         ) && (
                           <div className="flex flex-wrap gap-2">
                             {Object.entries(item.options)
@@ -185,7 +185,7 @@ export default function CartPage() {
                               onChange={(e) =>
                                 updateQuantity(
                                   item.id,
-                                  Number.parseInt(e.target.value) || 1
+                                  Number.parseInt(e.target.value) || 1,
                                 )
                               }
                               className="w-20 text-center"

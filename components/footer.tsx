@@ -13,7 +13,7 @@ export function Footer() {
                 <img src="./logo.png" alt="Logo" />
               </div>
               <div>
-                <h3 className="font-bold">Skyprint Global</h3>
+                <h3 className="font-bold">Global Skyprint</h3>
                 <p className="text-xs opacity-80">Printing Solutions</p>
               </div>
             </div>
@@ -114,7 +114,7 @@ export function Footer() {
         <div className="border-t border-primary-foreground/20 mt-8 sm:mt-12 pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 text-center sm:text-left">
             <p className="text-sm opacity-80">
-              © 2025 The Skyprint Global Services Limited. All rights reserved.
+              © 2025 The Global Skyprint Services Limited. All rights reserved.
             </p>
           </div>
         </div>

@@ -79,7 +79,7 @@ export default function ContactPage() {
 
   const handleWhatsAppChat = () => {
     const phoneNumber = "2348067614781";
-    const message = `Hello Skyprint Global! 👋
+    const message = `Hello Global Skyprint! 👋
 
 I'm interested in your printing services and would like to discuss my project requirements. 
 

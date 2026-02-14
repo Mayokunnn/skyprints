@@ -88,7 +88,7 @@ export default function AboutPage() {
                   variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
                 >
                   <Badge className="mb-3">
-                    About The Skyprint Global Services Limited
+                    About The Global Skyprint Services Limited
                   </Badge>
                 </motion.div>
                 <motion.h1
@@ -141,7 +141,7 @@ export default function AboutPage() {
                 <p>
                   Founded in the heart of Lagos,{" "}
                   <span className="uppercase font-bold">
-                    The Skyprint Global Services Limited
+                    The Global Skyprint Services Limited
                   </span>{" "}
                   is a digital printing solution hub, we offer the full range of
                   branding support and print services to a variety of clients
@@ -173,7 +173,7 @@ export default function AboutPage() {
             >
               <Image
                 src="/modern-printing-facility-with-large-format-printer.jpg"
-                alt="Skyprint Global printing facility"
+                alt="Global Skyprint printing facility"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-xl"
@@ -364,7 +364,7 @@ export default function AboutPage() {
             Ready to Work With Us?
           </h2>
           <p className="text-xl  mb-8 max-w-2xl mx-auto">
-            Join hundreds of satisfied clients who trust The Skyprint Global
+            Join hundreds of satisfied clients who trust The Global Skyprint
             Services Limited for their printing and branding needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

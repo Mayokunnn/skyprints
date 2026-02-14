@@ -40,7 +40,7 @@ export function Header() {
             </div>
             <div className="sm:hidden">
               <h1 className="text-base font-bold text-foreground">
-                Skyprint Global
+                Global Skyprint
               </h1>
               <p className="text-xs text-muted-foreground">
                 Printing Solutions

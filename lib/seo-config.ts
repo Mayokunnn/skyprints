@@ -1,7 +1,7 @@
 // lib/seo-config.ts
 export const seoConfig = {
   site: {
-    name: "The Skyprint Global Services Limited",
+    name: "The Global Skyprint Services Limited",
     url: "https://www.globalskyprint.com",
     description:
       "Professional printing solutions for corporate branding, technical printing, merchandise, and event branding in Lagos, Nigeria.",
@@ -36,12 +36,12 @@ export const seoConfig = {
 export const seoKeywords = {
   main: [
     "corporate printing",
-    "skyprint global services",
+    "Global Skyprint services",
     "skyprint",
     "skyprint nigeria",
     "skyprint lagos",
     "printing company",
-    "skyprint global",
+    "Global Skyprint",
     "skyprint services",
     "printing solutions",
     "corporate branding",

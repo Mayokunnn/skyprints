@@ -13,19 +13,19 @@ export const metadata: Metadata = {
   },
   title: {
     default:
-      "The Skyprint Global Services Limited - Corporate Printing & Branding Solutions",
-    template: "%s | The Skyprint Global Services Limited",
+      "The Global Skyprint Services Limited - Corporate Printing & Branding Solutions",
+    template: "%s | The Global Skyprint Services Limited",
   },
   description:
     "Professional printing solutions for corporate branding, technical printing, merchandise, and event branding in Lagos, Nigeria. High-quality custom printing services.",
   keywords: [
     "corporate printing",
-    "skyprint global services",
+    "Global Skyprint services",
     "skyprint",
     "skyprint nigeria",
     "skyprint lagos",
     "printing company",
-    "skyprint global",
+    "Global Skyprint",
     "skyprint services",
     "printing solutions",
     "corporate branding",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     "technical printing",
     "event branding",
   ],
-  authors: [{ name: "The Skyprint Global Services Limited" }],
-  creator: "The Skyprint Global Services Limited",
-  publisher: "The Skyprint Global Services Limited",
+  authors: [{ name: "The Global Skyprint Services Limited" }],
+  creator: "The Global Skyprint Services Limited",
+  publisher: "The Global Skyprint Services Limited",
   robots: {
     index: true,
     follow: true,
@@ -79,26 +79,26 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   openGraph: {
     title:
-      "The Skyprint Global Services Limited - Corporate Printing & Branding Solutions",
+      "The Global Skyprint Services Limited - Corporate Printing & Branding Solutions",
     description:
       "Professional printing solutions for corporate branding, technical printing, merchandise, and event branding in Lagos, Nigeria.",
     type: "website",
     url: "https://www.globalskyprint.com",
-    siteName: "The Skyprint Global Services Limited",
+    siteName: "The Global Skyprint Services Limited",
     locale: "en_NG",
     images: [
       {
         url: "/og_image.png",
         width: 1200,
         height: 630,
-        alt: "The Skyprint Global Services Limited - Corporate Printing Solutions",
+        alt: "The Global Skyprint Services Limited - Corporate Printing Solutions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "The Skyprint Global Services Limited - Corporate Printing & Branding Solutions",
+      "The Global Skyprint Services Limited - Corporate Printing & Branding Solutions",
     description:
       "Professional printing solutions for corporate branding, technical printing, merchandise, and event branding in Lagos, Nigeria.",
     images: ["/og_image.png"],
@@ -107,7 +107,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "The Skyprint Global Services Limited",
+    title: "The Global Skyprint Services Limited",
   },
   formatDetection: {
     telephone: true,

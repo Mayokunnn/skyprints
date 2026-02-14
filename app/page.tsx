@@ -9,10 +9,10 @@ import { HeroParallax } from "@/components/ui/hero-parallax";
 export const metadata: Metadata = {
   title: "Home | Corporate Printing & Branding Solutions",
   description:
-    "The Skyprint Global Services Limited offers professional corporate printing solutions including business cards, merchandise, banners, and branding services in Lagos, Nigeria.",
+    "The Global Skyprint Services Limited offers professional corporate printing solutions including business cards, merchandise, banners, and branding services in Lagos, Nigeria.",
   openGraph: {
     title:
-      "The Skyprint Global Services Limited - Corporate Printing & Branding Solutions",
+      "The Global Skyprint Services Limited - Corporate Printing & Branding Solutions",
     description:
       "Professional printing solutions for corporate branding, technical printing, merchandise, and event branding.",
     type: "website",

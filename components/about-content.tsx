@@ -39,7 +39,7 @@ export function AboutContent() {
     {
       year: "2015",
       title: "Founded",
-      description: "Skyprint Global Limited established",
+      description: "Global Skyprint Limited established",
     },
     {
       year: "2017",

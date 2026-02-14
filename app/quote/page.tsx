@@ -20,7 +20,7 @@ import { Footer } from "@/components/footer";
 import { DotBackground } from "@/components/dot-background";
 
 export const metadata: Metadata = {
-  title: "Get a Quote | The Skyprint Global Services Limited",
+  title: "Get a Quote | The Global Skyprint Services Limited",
   description:
     "Request a custom quote for your printing and branding project. Fill out our quick form and get a personalized quote from our team.",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "branding quote",
   ],
   openGraph: {
-    title: "Get a Quote | The Skyprint Global Services Limited",
+    title: "Get a Quote | The Global Skyprint Services Limited",
     description:
       "Request a custom quote for your printing and branding project.",
     type: "website",
@@ -440,7 +440,7 @@ export default function QuotePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-orange-100 text-orange-800 border-orange-200">
-              Why Choose Skyprint Global
+              Why Choose Global Skyprint
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Your Trusted Printing Partner

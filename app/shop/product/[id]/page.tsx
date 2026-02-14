@@ -32,7 +32,7 @@ export async function generateMetadata({
   const defaultItem = findItemForOption(category, category.options[0] ?? "");
   const productImage = getProductImage(defaultItem);
 
-  const title = `${category.category} - The Skyprint Global Services Limited`;
+  const title = `${category.category} - The Global Skyprint Services Limited`;
   const description = `Shop our ${
     category.category
   } printing solutions. Starting from ₦${

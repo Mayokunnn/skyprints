@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us | The Skyprint Global Services Limited",
+  title: "Contact Us | The Global Skyprint Services Limited",
   description:
-    "Get in touch with The Skyprint Global Services Limited. Contact us via phone, email, or visit our Lagos office. We're ready to discuss your printing and branding needs.",
+    "Get in touch with The Global Skyprint Services Limited. Contact us via phone, email, or visit our Lagos office. We're ready to discuss your printing and branding needs.",
   keywords: [
     "contact skyprint",
     "printing quotes",
@@ -12,19 +12,19 @@ export const metadata: Metadata = {
     "printing inquiries",
     "branding solutions",
     "printing services",
-    "skyprint global services",
+    "Global Skyprint services",
     "skyprint",
     "skyprint nigeria",
     "skyprint lagos",
     "printing company",
-    "skyprint global",
+    "Global Skyprint",
     "skyprint services",
     "printing solutions",
   ],
   openGraph: {
-    title: "Contact Us | The Skyprint Global Services Limited",
+    title: "Contact Us | The Global Skyprint Services Limited",
     description:
-      "Get in touch with The Skyprint Global Services Limited for your printing and branding needs.",
+      "Get in touch with The Global Skyprint Services Limited for your printing and branding needs.",
     type: "website",
     url: "https://www.globalskyprint.com/contact",
   },

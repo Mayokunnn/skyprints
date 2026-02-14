@@ -1,4 +1,4 @@
-# SEO Implementation Guide for The Skyprint Global Services Limited
+# SEO Implementation Guide for The Global Skyprint Services Limited
 
 ## Overview
 
@@ -141,13 +141,11 @@ This document outlines the comprehensive SEO implementation for the Skyprint web
 After deployment, track these metrics:
 
 1. **Core Web Vitals**
-
    - Largest Contentful Paint (LCP) - Target: < 2.5s
    - First Input Delay (FID) - Target: < 100ms
    - Cumulative Layout Shift (CLS) - Target: < 0.1
 
 2. **Search Engine Metrics**
-
    - Mobile usability in Google Search Console
    - Crawl stats
    - Indexed pages

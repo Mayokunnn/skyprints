@@ -92,7 +92,7 @@ export function HeroSection({ className }: { className?: string }) {
         ref={ref}
         className={cn(
           "relative w-full flex flex-col justify-center pt-10 lg:pt-20",
-          className
+          className,
         )}
       >
         {/* ✅ Hero Content */}
@@ -113,7 +113,7 @@ export function HeroSection({ className }: { className?: string }) {
               transition={{ delay: 0.6, duration: 0.8, ease: "easeInOut" }}
               className="text-base sm:text-lg leading-relaxed text-pretty max-w-2xl mx-auto"
             >
-              The Skyprint Global Services Limited delivers bespoke corporate
+              The Global Skyprint Services Limited delivers bespoke corporate
               branding, technical printing, promotional merchandise, and
               exhibition solutions with unmatched speed, quality, and
               cost-effectiveness.

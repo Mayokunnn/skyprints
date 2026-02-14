@@ -2,7 +2,7 @@
 export const companyStructuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "The Skyprint Global Services Limited",
+  name: "The Global Skyprint Services Limited",
   description:
     "Professional printing solutions for corporate branding, technical printing, merchandise, and event branding",
   url: "https://www.globalskyprint.com",
@@ -61,7 +61,7 @@ export const productStructuredData = (
   url,
   brand: {
     "@type": "Brand",
-    name: "The Skyprint Global Services Limited",
+    name: "The Global Skyprint Services Limited",
   },
   ...(price && {
     offers: {
@@ -72,7 +72,7 @@ export const productStructuredData = (
       availability: "https://schema.org/InStock",
       seller: {
         "@type": "Organization",
-        name: "The Skyprint Global Services Limited",
+        name: "The Global Skyprint Services Limited",
       },
     },
   }),
@@ -81,7 +81,7 @@ export const productStructuredData = (
 export const organizationStructuredData = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "The Skyprint Global Services Limited",
+  name: "The Global Skyprint Services Limited",
   url: "https://www.globalskyprint.com",
   logo: "https://www.globalskyprint.com/logo.png",
   description:
